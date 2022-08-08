@@ -17,22 +17,26 @@ for group in groups:
             info = (item.split('/')[-1]).split('_')[-1]
             addr = (info.split(':')[0]).split('.')[0]
             diff = (info.split(':')[1]).split('%')[0]
-            addr_group[addr] = count
-            addr_diff[addr] = diff
+            if addr_group.get(addr) is None:
+                addr_group[addr] = str(count)
+                addr_diff[addr] = diff
+            else:
+                addr_group[addr] += ('/' + str(count))
+                addr_diff[addr] += ('/' + diff)
     count += 1
 # print(addr_group)
 # print(addr_diff)
 
-wb = load_workbook(filename='.\\info.xlsx')
+wb = load_workbook(filename='.\\contract_info.xlsx')
 ws = wb['Contracts']
 # Address: Bx Group: Gx Difference: Hx
 for i in range(2, 9238):
     addr = ws['B' + str(i)].value
     if(addr_group.get(addr)):
         print(addr, addr_group[addr], addr_diff[addr])
-        ws['G' + str(i)] = str(addr_group[addr])
-        ws['H' + str(i)] = str(addr_diff[addr])
+        ws['G' + str(i)] = addr_group[addr]
+        ws['H' + str(i)] = addr_diff[addr]
     else:
         print('Address %s is not in the groups.' % addr)
         continue
-wb.save('.\\info.xlsx')
+wb.save('.\\contract_info.xlsx')
