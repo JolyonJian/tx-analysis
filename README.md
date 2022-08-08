@@ -64,7 +64,11 @@ ORDER BY tx_count DESC
 
 6. 部分合约源代码存在换行符等符号错误，使用`raw_data/script/filter.sh`脚本处理
 
-7. 对源码进行分类分析，使用`raw_data/script/group.sh`脚本处理
+7. 根据代码相似度对源码进行分类，使用`raw_data/script/group.sh`脚本处理
+
+8. 将分类后的合约放入不同文件夹中，使用`raw_data/script/group.py`脚本处理
+
+9. 将分类信息写入contract_info，使用`raw_data/script/write_group.py`脚本处理
 
 #### 一些结果
 
