@@ -70,25 +70,12 @@ ORDER BY tx_count DESC
 
 9. 将分类信息写入contract_info，使用`raw_data/script/write_group.py`脚本处理
 
-#### 一些结果
+10. 从etherscan获取合约类型标记，使用`raw_data/script/get_info.py`脚本处理
+
+#### 分析结果
 
 对TOP100合约的分类和功能描述情况详见`contract_info.xlsx`
 
-数量及分类如下：
-```
-Token: 41个，代币合约，包括ERC20和非ERC20代币
-DEX: 20个，去中心化交易所
-MEV Bot: 8个，套利机器人，地址多以0x000000...开头，可能为了减少gas费用
-NFTM: 2个， OpenSea NFT交易市场
-ICO: 3个，众筹合约，均疑似庞氏骗局
-GAME: 2个，EasyClub金融游戏，Dice2Win博彩游戏
-NFT: 1个，CryptoKitties
-其他类型单独标注
-```
-Top1合约调用次数占比13.99%
+对TOP1000合约的分组和分类情况详见`group_info.xlsx`
 
-Top10合约调用次数占比累计37.49%，第9个合约起，每个合约调用次数占比＜1%
-
-Top100合约调用次数占比累计57.67%
-
-Top637合约调用次数占比累计75.73%，第638个合约起，每个合约的调用次数占比≤0.01%
+分析结果详见<https://github.com/JolyonJian/contracts>
