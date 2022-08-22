@@ -1,4 +1,4 @@
-# TxAnalysis
+# Smart Contract Analysis of Ethereum
 
 #### 目的
 获取以太坊合约信息，爬取合约源码，并对合约及交易信息进行分析
